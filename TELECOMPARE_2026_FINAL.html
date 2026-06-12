@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TELECOMPARE.EG — أسعار 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--vf:#E60026;--vf-bg:#fff0f2;--et:#007A3D;--et-bg:#e6f4ed;--or:#FF6600;--or-bg:#fff3eb;--we:#5B21B6;--we-bg:#f0ebff;--bg:#0a0a0f;--s1:#12121a;--s2:#1a1a26;--s3:#22222f;--b:rgba(255,255,255,.08);--b2:rgba(255,255,255,.16);--t:#f0f0f5;--t2:#9090a8;--t3:#5a5a72;--r:14px;--r2:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--t);min-height:100vh;overflow-x:hidden}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--b);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-size:18px;font-weight:700;letter-spacing:.5px;color:#fff}.logo b{color:var(--vf)}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.tag{font-size:10px;background:#064e1e;color:#4ade80;padding:3px 10px;border-radius:20px;font-weight:700}
+.langbtn{background:var(--s2);border:1px solid var(--b2);color:var(--t2);border-radius:20px;padding:5px 13px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;transition:all .2s}
+.langbtn:hover{color:#fff}
+.tabs{background:var(--s1);border-bottom:1px solid var(--b);display:flex;overflow-x:auto;padding:0 10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:12px 13px;font-size:12px;font-weight:600;border:none;background:none;color:var(--t3);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;font-family:'Cairo',sans-serif;display:flex;align-items:center;gap:5px;transition:color .15s}
+.tab.on{color:#fff;border-bottom-color:var(--vf)}
+.searchbar{padding:10px 12px;background:var(--s1);border-bottom:1px solid var(--b);display:flex;gap:8px}
+.sinput{flex:1;background:var(--s2);border:1px solid var(--b2);border-radius:var(--r2);padding:9px 14px;color:var(--t);font-size:13px;font-family:'Cairo',sans-serif;outline:none;transition:border-color .2s}
+.sinput:focus{border-color:var(--vf)}
+.sinput::placeholder{color:var(--t3)}
+.sclr{background:var(--s2);border:1px solid var(--b2);color:var(--t2);border-radius:var(--r2);padding:9px 13px;cursor:pointer;font-size:13px;transition:all .2s}
+.sclr:hover{color:#fff}
+.frow{display:flex;gap:6px;padding:8px 12px;overflow-x:auto;scrollbar-width:none;background:var(--s2);border-bottom:1px solid var(--b)}
+.frow::-webkit-scrollbar{display:none}
+.fpill{padding:5px 13px;border-radius:20px;border:1px solid var(--b2);background:var(--s3);font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;color:var(--t2);font-family:'Cairo',sans-serif;transition:all .15s}
+.fpill.on{color:#fff;border-color:transparent}
+.fpill[data-k="vf"].on{background:var(--vf)}.fpill[data-k="et"].on{background:var(--et)}.fpill[data-k="or"].on{background:var(--or)}.fpill[data-k="we"].on{background:var(--we)}.fpill[data-k="all"].on{background:#444}
+.pfrow{display:flex;gap:6px;padding:7px 12px;overflow-x:auto;scrollbar-width:none;background:var(--s1);border-bottom:1px solid var(--b)}
+.pfrow::-webkit-scrollbar{display:none}
+.pfchip{padding:4px 11px;border-radius:20px;border:1px solid var(--b);background:var(--s2);font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;color:var(--t3);font-family:'Cairo',sans-serif;transition:all .15s}
+.pfchip.on{background:var(--s3);color:var(--t);border-color:var(--b2)}
+.main{padding:12px 12px 100px}
+.grid{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--s1);border:1px solid var(--b);border-radius:var(--r);overflow:hidden;animation:fu .3s ease both}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card.sel{border:2px solid #3b82f6}
+.bestbadge{font-size:9px;font-weight:700;padding:3px 16px;text-align:center;letter-spacing:.06em}
+.chead{padding:13px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--b)}
+.cavatar{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.cname{font-size:15px;font-weight:700;color:#fff}
+.cen{font-size:10px;color:var(--t3);margin-top:1px}
+.csel{margin-right:auto;font-size:9px;font-weight:700;padding:2px 9px;border-radius:20px}
+.scores{display:flex;border-bottom:1px solid var(--b)}
+.sc{flex:1;padding:7px 4px;text-align:center;border-right:1px solid var(--b)}
+.sc:last-child{border-right:none}
+.slbl{font-size:9px;color:var(--t3);margin-bottom:1px}
+.sval{font-size:12px;font-weight:700}
+.sbar{height:2px;background:var(--s3);border-radius:1px;margin-top:3px;overflow:hidden}
+.sfill{height:100%;border-radius:1px}
+.blist{padding:10px 14px}
+.btitle{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;border-bottom:1px solid var(--b);padding-bottom:5px}
+.brow{display:flex;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);gap:6px}
+.brow:last-child{border-bottom:none}
+.bn{font-size:11px;font-weight:700;color:#fff;min-width:90px}
+.bd{font-size:10px;color:var(--t2);flex:1;line-height:1.4}
+.bcode{font-size:9px;color:var(--t3)}
+.bspd{font-size:9px;font-weight:700;padding:2px 6px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.bprices{text-align:left;flex-shrink:0}
+.bp{font-size:12px;font-weight:700;white-space:nowrap}
+.bptax{font-size:9px;color:var(--t3);white-space:nowrap}
+.selbtn{margin:10px 14px 14px;padding:10px;border-radius:var(--r2);border:1px solid var(--b2);background:var(--s2);font-size:13px;font-weight:700;cursor:pointer;color:var(--t2);width:calc(100% - 28px);font-family:'Cairo',sans-serif;transition:all .2s}
+.selbtn:hover{background:var(--s3);color:#fff}
+.selbtn.chosen{color:#fff;border-color:transparent}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--b);border-radius:var(--r)}
+.cmptbl{width:100%;border-collapse:collapse;font-size:11px;min-width:420px}
+.cmptbl th{padding:10px 8px;text-align:center;background:var(--s2);font-weight:700;font-size:12px;border-bottom:1px solid var(--b)}
+.cmptbl th:first-child{text-align:right;color:var(--t2);min-width:100px}
+.cmptbl td{padding:9px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04);color:var(--t2)}
+.cmptbl td:first-child{text-align:right;font-weight:600;color:var(--t3);background:var(--s2)}
+.cmptbl tr:last-child td{border-bottom:none}
+.cmptbl tr:nth-child(even) td:not(:first-child){background:rgba(255,255,255,.02)}
+.tick{color:#22c55e;font-weight:700}.cross{color:#ef4444}
+.bot{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(18,18,26,.97);backdrop-filter:blur(16px);border-top:1px solid var(--b);padding:10px 14px;display:flex;align-items:center;gap:10px}
+.binfo{flex:1;font-size:12px;color:var(--t2)}
+.cmpbtn{padding:10px 20px;background:var(--vf);border:none;color:#fff;border-radius:var(--r2);font-size:13px;font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;white-space:nowrap}
+.result{background:var(--s1);border:1px solid var(--b);border-radius:var(--r);padding:16px;margin-top:12px;display:none}
+.result.show{display:block}
+.rtitle{font-size:15px;font-weight:700;margin-bottom:14px}
+.rcard{border-radius:var(--r2);padding:13px;display:flex;gap:12px;margin-bottom:10px}
+.ravatar{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.rname{font-size:14px;font-weight:700}
+.rsub{font-size:11px;color:var(--t2);margin-top:2px}
+.rtags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.rtag{font-size:10px;padding:2px 9px;border-radius:20px;background:var(--s2);color:var(--t2)}
+.notice{font-size:10px;color:var(--t3);background:var(--s2);border-radius:var(--r2);padding:10px 12px;margin-top:12px;border:1px solid var(--b);line-height:1.7}
+.noresult{text-align:center;padding:40px 20px;color:var(--t3)}
+@media(min-width:700px){.grid{display:grid;grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">TELE<b>COMPARE</b>.EG</div>
+  <div class="hdr-right">
+    <span class="tag" id="upd-tag">يونيو 2026 ✓</span>
+    <button class="langbtn" onclick="toggleLang()" id="langbtn">EN</button>
+  </div>
+</div>
+
+<nav class="tabs">
+  <button class="tab on" onclick="setTab('mobile',this)"><span>📱</span><span class="tl" data-ar="موبايل" data-en="Mobile">موبايل</span></button>
+  <button class="tab" onclick="setTab('vdsl',this)"><span>🏠</span><span class="tl" data-ar="VDSL" data-en="VDSL">VDSL</span></button>
+  <button class="tab" onclick="setTab('flex',this)"><span>🔄</span><span class="tl" data-ar="فليكس" data-en="Flex">فليكس</span></button>
+  <button class="tab" onclick="setTab('mix',this)"><span>📦</span><span class="tl" data-ar="مدمجة" data-en="Combo">مدمجة</span></button>
+  <button class="tab" onclick="setTab('compare',this)"><span>⚖️</span><span class="tl" data-ar="مقارنة" data-en="Compare">مقارنة</span></button>
+</nav>
+
+<div class="searchbar" id="searchbar">
+  <input class="sinput" id="sinput" type="text" oninput="renderGrid()" />
+  <button class="sclr" onclick="clearSearch()">✕</button>
+</div>
+
+<div class="frow" id="frow">
+  <button class="fpill on" data-k="all" onclick="setOp('all',this)" data-ar="الكل" data-en="All">الكل</button>
+  <button class="fpill" data-k="vf" onclick="setOp('vf',this)" data-ar="فودافون" data-en="Vodafone">فودافون</button>
+  <button class="fpill" data-k="et" onclick="setOp('et',this)" data-ar="اتصالات" data-en="Etisalat">اتصالات</button>
+  <button class="fpill" data-k="or" onclick="setOp('or',this)" data-ar="أورانج" data-en="Orange">أورانج</button>
+  <button class="fpill" data-k="we" onclick="setOp('we',this)" data-ar="وي" data-en="WE">وي</button>
+</div>
+
+<div class="pfrow" id="pfrow">
+  <button class="pfchip on" onclick="setPrice(0,99999,this)" data-ar="كل الأسعار" data-en="All">كل الأسعار</button>
+  <button class="pfchip" onclick="setPrice(0,100,this)" data-ar="أقل من 100 ج" data-en="Under 100">أقل من 100 ج</button>
+  <button class="pfchip" onclick="setPrice(100,300,this)" data-ar="100–300 ج" data-en="100–300">100–300 ج</button>
+  <button class="pfchip" onclick="setPrice(300,600,this)" data-ar="300–600 ج" data-en="300–600">300–600 ج</button>
+  <button class="pfchip" onclick="setPrice(600,99999,this)" data-ar="فوق 600 ج" data-en="600+">فوق 600 ج</button>
+</div>
+
+<div class="main">
+  <div class="grid" id="grid"></div>
+  <div class="result" id="result"></div>
+</div>
+
+<div class="bot">
+  <div class="binfo" id="binfo"></div>
+  <button class="cmpbtn" id="cmpbtn" onclick="showResult()"></button>
+</div>
+
+<script>
+const T14 = p => Math.round(p * 1.14);
+
+// ══════════════════════════════════════════════════════════
+//  أسعار محدثة يونيو 2026 — مصادر: المصري اليوم، sfegypt،
+//  المصري الآن، شبكاتي، المواقع الرسمية للشركات
+// ══════════════════════════════════════════════════════════
+const OPS = {
+
+  // ─── فودافون ───────────────────────────────────────────
+  vf:{k:'vf',color:'#E60026',bg:'#fff0f2',
+    name:{ar:'فودافون',en:'Vodafone Egypt'},
+    sub:{ar:'أكبر شبكة · 4G/5G · 21 مدينة',en:'Largest network · 4G/5G · 21 cities'},
+    score:{coverage:95,speed:88,price:80,service:85},
+    cats:{
+      mobile:[
+        // باقات بلس (إنترنت فقط) - من 32 لـ 520 جنيه
+        {n:'بلس 32',    ne:'Plus 32',   d:{ar:'500 ميجا · 28 يوم',        en:'500 MB · 28 days'},          p:32,  s:'4G',  code:'*2000*32#'},
+        {n:'بلس 55',    ne:'Plus 55',   d:{ar:'1.5 جيجا · 28 يوم',       en:'1.5 GB · 28 days'},           p:55,  s:'4G',  code:'*2000*55#'},
+        {n:'بلس 90',    ne:'Plus 90',   d:{ar:'4 جيجا · 28 يوم',         en:'4 GB · 28 days'},             p:90,  s:'4G+', code:'*2000*90#'},
+        {n:'بلس 145',   ne:'Plus 145',  d:{ar:'10 جيجا · 28 يوم',        en:'10 GB · 28 days'},            p:145, s:'4G+', code:'*2000*145#'},
+        {n:'بلس 225',   ne:'Plus 225',  d:{ar:'20 جيجا · 28 يوم',        en:'20 GB · 28 days'},            p:225, s:'4G+', code:'*2000*225#'},
+        {n:'بلس 370',   ne:'Plus 370',  d:{ar:'35 جيجا · 28 يوم',        en:'35 GB · 28 days'},            p:370, s:'4G+', code:'*2000*370#'},
+        {n:'بلس 520',   ne:'Plus 520',  d:{ar:'60 جيجا · 28 يوم',        en:'60 GB · 28 days'},            p:520, s:'4G+', code:'*2000*520#'},
+      ],
+      vdsl:[
+        // أسعار فودافون VDSL شاملة ضريبة 14% (المصري اليوم + sfegypt)
+        {n:'VDSL 50GB',   ne:'VDSL 50GB',   d:{ar:'50 جيجا — 30Mbps',   en:'50 GB — 30Mbps'},   p:150, s:'30Mbps'},
+        {n:'VDSL 150GB',  ne:'VDSL 150GB',  d:{ar:'150 جيجا — 30Mbps',  en:'150 GB — 30Mbps'},  p:171, s:'30Mbps'},
+        {n:'VDSL 300GB',  ne:'VDSL 300GB',  d:{ar:'300 جيجا — 30Mbps',  en:'300 GB — 30Mbps'},  p:285, s:'30Mbps'},
+        {n:'VDSL 300GB+', ne:'VDSL 300GB+', d:{ar:'300 جيجا — 70Mbps',  en:'300 GB — 70Mbps'},  p:399, s:'70Mbps'},
+        {n:'VDSL 750GB',  ne:'VDSL 750GB',  d:{ar:'750 جيجا — 100Mbps', en:'750 GB — 100Mbps'}, p:570, s:'100Mbps'},
+        {n:'VDSL ألترا',  ne:'VDSL Ultra',  d:{ar:'غير محدود — 200Mbps', en:'Unlimited — 200Mbps'}, p:1054, s:'200Mbps'},
+      ],
+      flex:[
+        // باقات فليكس الجديدة 2026 (المصري الآن + شبكاتي - أكتوبر 2025/فبراير 2026)
+        {n:'فليكس 35',  ne:'Flex 35',  d:{ar:'2800 فليكس · 28 يوم',  en:'2,800 Flexes · 28 days'},  p:35,    s:null, code:'*035#'},
+        {n:'فليكس 40',  ne:'Flex 40',  d:{ar:'3200 فليكس · 28 يوم',  en:'3,200 Flexes · 28 days'},  p:40,    s:null, code:'*040#'},
+        {n:'فليكس 50',  ne:'Flex 50',  d:{ar:'4400 فليكس · 28 يوم',  en:'4,400 Flexes · 28 days'},  p:50,    s:null, code:'*050#'},
+        {n:'فليكس 70',  ne:'Flex 70',  d:{ar:'6600 فليكس + WATCH IT', en:'6,600 Flexes + WATCH IT'}, p:90,    s:null, code:'*070#'},
+        {n:'فليكس 100', ne:'Flex 100', d:{ar:'5500 فليكس + WATCH IT + Anghami', en:'5,500 Flexes + WATCH IT + Anghami'}, p:130, s:null, code:'*0100#'},
+        {n:'فليكس 260', ne:'Flex 260', d:{ar:'13000 فليكس + كل الخدمات', en:'13,000 Flexes + all entertainment'}, p:371, s:null, code:'*0260#'},
+      ],
+      mix:[
+        // باقات RED الجديدة 2026 (sfegypt - فبراير 2026)
+        {n:'RED ESSENTIAL', ne:'RED ESSENTIAL', d:{ar:'12 GB + 3000 دقيقة كل الشبكات', en:'12 GB + 3,000 min all networks'}, p:450,  s:'4G+'},
+        {n:'RED ADVANCE',   ne:'RED ADVANCE',   d:{ar:'25 GB + 5000 دقيقة',            en:'25 GB + 5,000 min'},              p:750,  s:'4G+'},
+        {n:'RED PRIME',     ne:'RED PRIME',     d:{ar:'40 GB + 7000 دقيقة',            en:'40 GB + 7,000 min'},              p:1050, s:'5G'},
+        {n:'RED ELITE',     ne:'RED ELITE',     d:{ar:'70 GB + 10000 دقيقة',           en:'70 GB + 10,000 min'},             p:1500, s:'5G'},
+        {n:'RED EXCLUSIVE', ne:'RED EXCLUSIVE', d:{ar:'200 GB + أنلميتد + روامنج دولي', en:'200 GB + unlimited + intl roaming'}, p:3000, s:'5G'},
+      ]
+    }
+  },
+
+  // ─── اتصالات e& ───────────────────────────────────────
+  et:{k:'et',color:'#007A3D',bg:'#e6f4ed',
+    name:{ar:'اتصالات e&',en:'Etisalat (e&)'},
+    sub:{ar:'قائد 5G · أسرع شبكة · خدمة مميزة',en:'5G leader · fastest · premium service'},
+    score:{coverage:88,speed:92,price:74,service:90},
+    cats:{
+      mobile:[
+        // سوبر كونكت 2026 (مصر تايمز أبريل 2026 + smartshowtv مايو 2026)
+        {n:'سوبر كونكت 20', ne:'Super Connect 20',  d:{ar:'250 ميجا · 28 يوم',       en:'250 MB · 28 days'},               p:20,  s:'4G',  code:'*566#'},
+        {n:'سوبر كونكت 35', ne:'Super Connect 35',  d:{ar:'1.5 جيجا · 28 يوم',      en:'1.5 GB · 28 days'},               p:35,  s:'4G',  code:'*566#'},
+        {n:'سوبر كونكت 55', ne:'Super Connect 55',  d:{ar:'3 جيجا · 28 يوم',        en:'3 GB · 28 days'},                 p:55,  s:'4G',  code:'*566#'},
+        {n:'سوبر كونكت 100',ne:'Super Connect 100', d:{ar:'6 جيجا · 28 يوم',        en:'6 GB · 28 days'},                 p:100, s:'4G',  code:'*566#'},
+        {n:'سوبر كونكت 165',ne:'Super Connect 165', d:{ar:'12.25 جيجا + Shahid + Viu', en:'12.25 GB + Shahid + Viu'},     p:165, s:'4G+', code:'*566#'},
+        {n:'سوبر كونكت 300',ne:'Super Connect 300', d:{ar:'30 جيجا + مكالمات موسعة', en:'30 GB + extended calls'},        p:300, s:'5G',  code:'*566#'},
+        {n:'سوبر كونكت 520',ne:'Super Connect 520', d:{ar:'48 جيجا + أنلميتد e&',   en:'48 GB + unlimited e&'},           p:520, s:'5G',  code:'*566#'},
+      ],
+      vdsl:[
+        // اتصالات VDSL 2026 (المصري اليوم يناير 2026)
+        {n:'VDSL 150GB', ne:'VDSL 150GB', d:{ar:'150 جيجا — 50Mbps',  en:'150 GB — 50Mbps'},  p:260,  s:'50Mbps'},
+        {n:'VDSL 300GB', ne:'VDSL 300GB', d:{ar:'300 جيجا — 70Mbps',  en:'300 GB — 70Mbps'},  p:420,  s:'70Mbps'},
+        {n:'VDSL 500GB', ne:'VDSL 500GB', d:{ar:'500 جيجا — 100Mbps', en:'500 GB — 100Mbps'}, p:700,  s:'100Mbps'},
+        {n:'VDSL 1TB',   ne:'VDSL 1TB',   d:{ar:'1 تيرابايت — 100Mbps', en:'1 TB — 100Mbps'}, p:1100, s:'100Mbps'},
+      ],
+      flex:[
+        // حكاية ميكسات 2026 (مصر تايمز + كودكوهات أبريل/مايو 2026)
+        {n:'حكاية 45',  ne:'Hekaya 45',  d:{ar:'وحدات مكالمات + نت كل الشبكات', en:'Units calls + data all networks'}, p:45,  s:null, code:'*556#'},
+        {n:'حكاية 60',  ne:'Hekaya 60',  d:{ar:'وحدات موسعة (85.72 ج بالضريبة)', en:'Extended units (85.72 EGP w/VAT)'}, p:75, s:null, code:'*556#'},
+        {n:'حكاية 80',  ne:'Hekaya 80',  d:{ar:'وحدات + 2 جيجا بونص',  en:'Units + 2 GB bonus'},                      p:80,  s:null, code:'*556#'},
+        {n:'حكاية 150', ne:'Hekaya 150', d:{ar:'وحدات + 5 جيجا بونص',  en:'Units + 5 GB bonus'},                      p:150, s:null, code:'*556#'},
+        {n:'حكاية 235', ne:'Hekaya 235', d:{ar:'15 جيجا + 300 وحدة + ترفيه', en:'15 GB + 300 units + entertainment'}, p:235, s:null, code:'*556#'},
+      ],
+      mix:[
+        // إمرالد 2026
+        {n:'إمرالد 250',  ne:'Emerald 250',  d:{ar:'10 GB + 300 دقيقة + خصم VDSL',    en:'10 GB + 300 min + VDSL discount'}, p:250,  s:'4G+'},
+        {n:'إمرالد 450',  ne:'Emerald 450',  d:{ar:'20 GB + 600 دقيقة + VDSL',         en:'20 GB + 600 min + VDSL'},          p:450,  s:'5G'},
+        {n:'إمرالد 650',  ne:'Emerald 650',  d:{ar:'40 GB + أنلميتد e& + VDSL',        en:'40 GB + unlimited e& + VDSL'},     p:650,  s:'5G'},
+        {n:'إمرالد 1000', ne:'Emerald 1000', d:{ar:'80 GB + كل الخدمات + روامنج',      en:'80 GB + all services + roaming'},  p:1000, s:'5G'},
+      ]
+    }
+  },
+
+  // ─── أورانج ───────────────────────────────────────────
+  or:{k:'or',color:'#FF6600',bg:'#fff3eb',
+    name:{ar:'أورانج',en:'Orange Egypt'},
+    sub:{ar:'تغطية قوية · فري ماكس · أرخص موبايل',en:'Strong coverage · Free Max · cheapest mobile'},
+    score:{coverage:85,speed:83,price:87,service:82},
+    cats:{
+      mobile:[
+        // فري ماكس + GO 2026 (اتصالانجي + عروض بلس)
+        {n:'فري ماكس 25',  ne:'Free Max 25',  d:{ar:'900 وحدة + سوشيال مجاني',        en:'900 units + free social'},           p:25,  s:'4G',  code:'#0#'},
+        {n:'فري ماكس 75',  ne:'Free Max 75',  d:{ar:'5.5 جيجا + 2.75 جيجا YouTube',   en:'5.5 GB + 2.75 GB YouTube'},          p:75,  s:'4G',  code:'#222*75#'},
+        {n:'فري ماكس 100', ne:'Free Max 100', d:{ar:'9 جيجا + 4.5 جيجا YouTube',      en:'9 GB + 4.5 GB YouTube'},             p:100, s:'4G',  code:'#222*100#'},
+        {n:'فري ماكس 150', ne:'Free Max 150', d:{ar:'12 جيجا + 6 جيجا YouTube',       en:'12 GB + 6 GB YouTube'},              p:150, s:'4G+', code:'#222*150#'},
+        {n:'فري ماكس 250', ne:'Free Max 250', d:{ar:'20 جيجا + 10 جيجا YouTube',      en:'20 GB + 10 GB YouTube'},             p:250, s:'4G+', code:'#222*250#'},
+        {n:'بريميوم 250',  ne:'Premium 250',  d:{ar:'10000 دقيقة + 70 جيجا موبايل',   en:'10,000 min + 70 GB data'},          p:250, s:'4G+', code:'#188#'},
+      ],
+      vdsl:[
+        // أورانج VDSL 2026 (المصري اليوم + الأقباط متحدون يناير 2026)
+        {n:'هوم DSL 150G', ne:'Home DSL 150G', d:{ar:'150 جيجا — 40Mbps',  en:'150 GB — 40Mbps'},  p:260,  s:'40Mbps'},
+        {n:'هوم DSL 300G', ne:'Home DSL 300G', d:{ar:'300 جيجا — 60Mbps',  en:'300 GB — 60Mbps'},  p:410,  s:'60Mbps'},
+        {n:'هوم DSL 500G', ne:'Home DSL 500G', d:{ar:'500 جيجا — 100Mbps', en:'500 GB — 100Mbps'}, p:700,  s:'100Mbps'},
+        {n:'هوم DSL 1TB',  ne:'Home DSL 1TB',  d:{ar:'1 تيرابايت — 100Mbps', en:'1 TB — 100Mbps'}, p:1200, s:'100Mbps'},
+      ],
+      flex:[
+        // راسل 2026
+        {n:'راسل 30',  ne:'Rasel 30',  d:{ar:'30 وحدة كل الشبكات',       en:'30 units all networks'},        p:30,  s:null, code:'#0#'},
+        {n:'راسل 60',  ne:'Rasel 60',  d:{ar:'60 وحدة + بونص أورانج',    en:'60 units + Orange bonus'},      p:60,  s:null, code:'#0#'},
+        {n:'راسل 120', ne:'Rasel 120', d:{ar:'120 وحدة + 2 جيجا',        en:'120 units + 2 GB data'},        p:120, s:null, code:'#0#'},
+        {n:'راسل 250', ne:'Rasel 250', d:{ar:'250 وحدة + 5 جيجا',        en:'250 units + 5 GB data'},        p:250, s:null, code:'#0#'},
+      ],
+      mix:[
+        // بريمير + ميكس 2026
+        {n:'بريمير 375', ne:'Premier 375', d:{ar:'15 جيجا + 300 دقيقة + Amazon Prime', en:'15 GB + 300 min + Amazon Prime'}, p:375, s:'4G+'},
+        {n:'بريمير 750', ne:'Premier 750', d:{ar:'30 جيجا + 600 دقيقة + Spotify',      en:'30 GB + 600 min + Spotify'},      p:750, s:'4G+'},
+        {n:'ميكس 500',   ne:'Mix 500',     d:{ar:'20 جيجا + 500 دقيقة · 28 يوم',      en:'20 GB + 500 min · 28 days'},      p:500, s:'4G+'},
+      ]
+    }
+  },
+
+  // ─── وي ───────────────────────────────────────────────
+  we:{k:'we',color:'#5B21B6',bg:'#f0ebff',
+    name:{ar:'وي',en:'WE (Telecom Egypt)'},
+    sub:{ar:'الشبكة الوطنية · أرخص VDSL · WE TV مجاني',en:'National network · cheapest VDSL · free WE TV'},
+    score:{coverage:80,speed:87,price:93,service:79},
+    cats:{
+      mobile:[
+        // نيترو 2026 (شباب العالم + عروض بلس)
+        {n:'نيترو 20',  ne:'Nitro 20',  d:{ar:'650 ميجا (حد أقصى 1.25 جيجا)',  en:'650 MB (max 1.25 GB)'},    p:20,  s:'4G',  code:'#10*999#'},
+        {n:'نيترو 50',  ne:'Nitro 50',  d:{ar:'4 جيجا · 28 يوم',               en:'4 GB · 28 days'},          p:50,  s:'4G',  code:'#50*999#'},
+        {n:'نيترو 100', ne:'Nitro 100', d:{ar:'10 جيجا · 28 يوم',              en:'10 GB · 28 days'},         p:100, s:'4G',  code:'#100*999#'},
+        {n:'نيترو 200', ne:'Nitro 200', d:{ar:'20 جيجا · 28 يوم',              en:'20 GB · 28 days'},         p:200, s:'4G+', code:'#200*999#'},
+        {n:'نيترو 300', ne:'Nitro 300', d:{ar:'30 جيجا + 120 دقيقة محلية/دولية', en:'30 GB + 120 local/intl min'}, p:300, s:'4G+', code:'#300*999#'},
+        {n:'نيترو 450', ne:'Nitro 450', d:{ar:'60 جيجا (حد أقصى 100 جيجا)',    en:'60 GB (max 100 GB)'},      p:520, s:'4G+', code:'#450*999#'},
+      ],
+      vdsl:[
+        // وي VDSL 2026 شاملة ضريبة (البلد مايو 2026 + العين مايو 2026)
+        {n:'WE 140GB',    ne:'WE 140GB',    d:{ar:'140 جيجا — أكثر الباقات مبيعاً', en:'140 GB — best seller'}, p:210,  s:'50Mbps'},
+        {n:'WE 200GB',    ne:'WE 200GB',    d:{ar:'200 جيجا — 100Mbps',           en:'200 GB — 100Mbps'},      p:290,  s:'100Mbps'},
+        {n:'WE 250GB',    ne:'WE 250GB',    d:{ar:'250 جيجا — 100Mbps',           en:'250 GB — 100Mbps'},      p:360,  s:'100Mbps'},
+        {n:'WE 400GB',    ne:'WE 400GB',    d:{ar:'400 جيجا — 100Mbps',           en:'400 GB — 100Mbps'},      p:570,  s:'100Mbps'},
+        {n:'WE 600GB',    ne:'WE 600GB',    d:{ar:'600 جيجا — 100Mbps',           en:'600 GB — 100Mbps'},      p:850,  s:'100Mbps'},
+        {n:'WE 1TB',      ne:'WE 1TB',      d:{ar:'1 تيرابايت — 100Mbps',         en:'1 TB — 100Mbps'},        p:1550, s:'100Mbps'},
+      ],
+      flex:[
+        // كنترول وي 2026 (عروض بلس + شبكات)
+        {n:'كنترول 30',  ne:'Control 30',  d:{ar:'300 وحدة + WE TV مجاني',   en:'300 units + free WE TV'},   p:30,  s:null, code:'#30*660#'},
+        {n:'كنترول 40',  ne:'Control 40',  d:{ar:'400 وحدة + WE TV',          en:'400 units + WE TV'},        p:40,  s:null, code:'#40*660#'},
+        {n:'كنترول 70',  ne:'Control 70',  d:{ar:'500 وحدة + WE TV',          en:'500 units + WE TV'},        p:70,  s:null, code:'#70*660#'},
+        {n:'تظبيط 110',  ne:'Tazbeet 110', d:{ar:'600 وحدة + WE TV',          en:'600 units + WE TV'},        p:110, s:null, code:'#30*660#'},
+      ],
+      mix:[
+        // كيكس + جولد 2026
+        {n:'جولد 260',  ne:'Gold 260',  d:{ar:'داتا + خط عائلة + DSL 140GB + Vezeeta', en:'Data + family line + DSL 140GB + Vezeeta'}, p:260, s:'4G'},
+        {n:'كيكس M',    ne:'Kix M',    d:{ar:'12 جيجا + 300 دقيقة',               en:'12 GB + 300 min'},                             p:280, s:'4G+'},
+        {n:'كيكس L',    ne:'Kix L',    d:{ar:'25 جيجا + 500 دقيقة + WE TV',       en:'25 GB + 500 min + WE TV'},                    p:420, s:'4G+'},
+        {n:'كيكس XL',   ne:'Kix XL',   d:{ar:'50 جيجا + أنلميتد WE + WE TV',     en:'50 GB + unlimited WE + WE TV'},               p:620, s:'4G+'},
+      ]
+    }
+  }
+};
+
+const CATNAMES={mobile:{ar:'باقات الموبايل',en:'Mobile Bundles'},vdsl:{ar:'إنترنت منزلي VDSL',en:'Home Internet VDSL'},flex:{ar:'باقات الفليكس / الوحدات',en:'Flex / Unit Plans'},mix:{ar:'الباقات المدمجة',en:'Mix & Combo Plans'}};
+const SCNAMES={coverage:{ar:'تغطية',en:'Cov.'},speed:{ar:'سرعة',en:'Speed'},price:{ar:'قيمة',en:'Value'},service:{ar:'خدمة',en:'Serv.'}};
+const BEST={mobile:'or',vdsl:'we',flex:'we',mix:'vf'};
+const BESTREASON={mobile:{ar:'أرخص باقة موبايل 25 ج',en:'Cheapest 25 EGP'},vdsl:{ar:'أرخص VDSL في مصر',en:'Cheapest VDSL'},flex:{ar:'أرخص فليكس 30 ج',en:'Cheapest 30 EGP'},mix:{ar:'RED ESSENTIAL 450 ج',en:'RED ESSENTIAL 450 EGP'}};
+
+let lang='ar',tab='mobile',opFilter='all',priceMin=0,priceMax=99999,picked=null;
+const L=k=>typeof k==='object'?k[lang]:k;
+
+function toggleLang(){
+  lang=lang==='ar'?'en':'ar';
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.getElementById('langbtn').textContent=lang==='ar'?'EN':'AR';
+  document.getElementById('upd-tag').textContent=lang==='ar'?'يونيو 2026 ✓':'June 2026 ✓';
+  document.getElementById('sinput').placeholder=lang==='ar'?'ابحث... مثلاً: 10GB أو VDSL أو 100':'Search... e.g. 10GB or VDSL or 100';
+  document.querySelectorAll('.tl').forEach(el=>el.textContent=el.dataset[lang]);
+  document.querySelectorAll('.fpill,[data-ar]').forEach(el=>{if(el.dataset[lang])el.textContent=el.dataset[lang];});
+  renderGrid();
+}
+
+function setTab(tt,btn){
+  tab=tt;picked=null;priceMin=0;priceMax=99999;opFilter='all';
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.fpill').forEach(b=>{b.classList.remove('on');if(b.dataset.k==='all')b.classList.add('on');});
+  document.querySelectorAll('.pfchip').forEach((b,i)=>{b.classList.remove('on');if(i===0)b.classList.add('on');});
+  const isSpecial=tt==='compare';
+  ['searchbar','frow','pfrow'].forEach(id=>document.getElementById(id).style.display=isSpecial?'none':'flex');
+  if(document.getElementById('sinput'))document.getElementById('sinput').value='';
+  renderGrid();
+}
+
+function setOp(k,btn){
+  opFilter=k;
+  document.querySelectorAll('.fpill').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid();
+}
+
+function setPrice(mn,mx,btn){
+  priceMin=mn;priceMax=mx;
+  document.querySelectorAll('.pfchip').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid();
+}
+
+function clearSearch(){
+  document.getElementById('sinput').value='';
+  renderGrid();
+}
+
+function renderGrid(){
+  const grid=document.getElementById('grid');
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('binfo').textContent=picked?'':lang==='ar'?'اختر شبكة لمقارنتها':'Select an operator to compare';
+  document.getElementById('cmpbtn').textContent=lang==='ar'?'عرض المقارنة ▶':'Show Comparison ▶';
+  if(tab==='compare'){renderCompare();return;}
+  const q=(document.getElementById('sinput').value||'').trim().toLowerCase();
+  const keys=opFilter==='all'?Object.keys(OPS):[opFilter];
+  let html='';
+  keys.forEach((k,i)=>{
+    const op=OPS[k];
+    let bnd=(op.cats[tab]||[]).filter(b=>{
+      const nm=lang==='ar'?b.n:b.ne;
+      const dd=b.d[lang];
+      return(!q||nm.toLowerCase().includes(q)||dd.toLowerCase().includes(q)||String(b.p).includes(q))&&b.p>=priceMin&&b.p<=priceMax;
+    });
+    if(!bnd.length)return;
+    const isSel=picked===k,isBest=BEST[tab]===k;
+    html+=`<div class="card${isSel?' sel':''}" style="animation-delay:${i*.06}s">
+      ${isBest?`<div class="bestbadge" style="background:${op.color};color:#fff">⭐ ${L(BESTREASON[tab])}</div>`:''}
+      <div class="chead">
+        <div class="cavatar" style="background:${op.bg};color:${op.color}">${k==='et'?'e&':k.toUpperCase()}</div>
+        <div style="flex:1"><div class="cname">${L(op.name)}</div><div class="cen">${L(op.sub)}</div></div>
+        ${isSel?`<span class="csel" style="background:${op.bg};color:${op.color}">✓ ${lang==='ar'?'مختار':'Selected'}</span>`:''}
+      </div>
+      <div class="scores">${Object.keys(SCNAMES).map(s=>`<div class="sc"><div class="slbl">${L(SCNAMES[s])}</div><div class="sval" style="color:${op.color}">${op.score[s]}</div><div class="sbar"><div class="sfill" style="width:${op.score[s]}%;background:${op.color}"></div></div></div>`).join('')}</div>
+      <div class="blist">
+        <div class="btitle">${L(CATNAMES[tab])}</div>
+        ${bnd.map(b=>`<div class="brow">
+          <div class="bn">${lang==='ar'?b.n:b.ne}</div>
+          <div class="bd">${b.d[lang]}${b.code?`<br><span class="bcode">${lang==='ar'?'كود:':'Code:'} ${b.code}</span>`:''}</div>
+          ${b.s?`<span class="bspd" style="background:${op.bg};color:${op.color}">${b.s}</span>`:''}
+          <div class="bprices">
+            <div class="bp" style="color:${op.color}">${b.p} ${lang==='ar'?'ج':'EGP'}</div>
+            <div class="bptax">${lang==='ar'?'بالضريبة:':'VAT:'} ${T14(b.p)}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+      <button class="selbtn${isSel?' chosen':''}" style="${isSel?'background:'+op.color+';border-color:'+op.color:''}" onclick="pickOp('${k}')">
+        ${isSel?(lang==='ar'?'✓ مختار — اضغط للإلغاء':'✓ Selected — tap to deselect'):(lang==='ar'?'اختر '+L(op.name):'Select '+L(op.name))}
+      </button>
+    </div>`;
+  });
+  grid.innerHTML=html||`<div class="noresult"><div style="font-size:36px;margin-bottom:10px">🔍</div><div style="font-size:14px;font-weight:700;color:var(--t2)">${lang==='ar'?'لا توجد نتائج':'No results found'}</div></div>`;
+  if(picked)document.getElementById('binfo').innerHTML=`<span style="color:${OPS[picked].color};font-weight:700">${L(OPS[picked].name)}</span> ${lang==='ar'?'مختارة':'selected'}`;
+}
+
+function renderCompare(){
+  const grid=document.getElementById('grid');
+  const keys=Object.keys(OPS);
+  const eg=lang==='ar'?'ج':'EGP';
+  grid.innerHTML=`
+  <div class="tbl-wrap">
+    <table class="cmptbl">
+      <thead><tr>
+        <th>${lang==='ar'?'الميزة':'Feature'}</th>
+        ${keys.map(k=>`<th style="color:${OPS[k].color}">${L(OPS[k].name)}</th>`).join('')}
+      </tr></thead>
+      <tbody>
+        ${[
+          [lang==='ar'?'الشبكة':'Network','4G/5G','4G/5G','4G+','4G+'],
+          ['5G','✓','✓',lang==='ar'?'محدود':'Limited','✗'],
+          [lang==='ar'?'التغطية':'Coverage','95%','88%','85%','80%'],
+          [lang==='ar'?'أرخص موبايل':'Cheapest mobile',`32 ${eg}`,`20 ${eg}`,`25 ${eg}`,`20 ${eg}`],
+          [lang==='ar'?'بالضريبة 14%':'With VAT 14%',`36 ${eg}`,`23 ${eg}`,`29 ${eg}`,`23 ${eg}`],
+          [lang==='ar'?'أرخص VDSL (بالضريبة)':'Cheapest VDSL (VAT inc)',`150 ${eg}`,`260 ${eg}`,`260 ${eg}`,`210 ${eg}`],
+          [lang==='ar'?'VDSL غير محدود':'Unlimited VDSL',`1054 ${eg}`,lang==='ar'?'غير متاح':'N/A',lang==='ar'?'غير متاح':'N/A',`1550 ${eg}`],
+          [lang==='ar'?'نظام الوحدات':'Unit system','Flex','Hekaya','Rasel/FreeMax','Control/Nitro'],
+          [lang==='ar'?'5G متاح في':'5G in',lang==='ar'?'21 مدينة':'21 cities',lang==='ar'?'15 مدينة':'15 cities',lang==='ar'?'محدود':'Limited','✗'],
+          [lang==='ar'?'WE TV مجاني':'Free WE TV','✗','✗','✗','✓'],
+          [lang==='ar'?'التطبيق':'App','Ana Vodafone','My e& Egypt','My Orange','My WE'],
+          [lang==='ar'?'الأنسب لـ':'Best for',lang==='ar'?'تغطية/5G':'Coverage/5G',lang==='ar'?'سرعة/جودة':'Speed/quality',lang==='ar'?'اقتصاد':'Budget',lang==='ar'?'VDSL/قيمة':'VDSL/value'],
+        ].map((row,i)=>`<tr>
+          <td>${row[0]}</td>
+          ${keys.map((_,j)=>`<td class="${row[j+1]==='✓'?'tick':row[j+1]==='✗'?'cross':''}">${row[j+1]}</td>`).join('')}
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>
+  <div class="notice">
+    📅 <strong>${lang==='ar'?'الأسعار محدثة يونيو 2026':'Prices updated June 2026'}</strong><br>
+    📌 ${lang==='ar'?'الأسعار قبل الضريبة — السعر بالضريبة (14%) موضح بجانب كل باقة.':'Prices before VAT — price with 14% VAT shown next to each bundle.'}<br>
+    📰 ${lang==='ar'?'المصادر: المصري اليوم، sfegypt، مصر تايمز، شبكاتي، شباب العالم — مايو/يونيو 2026.':'Sources: Al-Masry Al-Youm, sfegypt, Masrtimes, shbkaty — May/June 2026.'}<br>
+    ⚠️ ${lang==='ar'?'تحقق من التطبيق الرسمي للأسعار الدقيقة والعروض الحالية.':'Check the official app for exact current prices and offers.'}
+  </div>`;
+}
+
+function pickOp(k){picked=picked===k?null:k;renderGrid();document.getElementById('result').classList.remove('show');}
+
+function showResult(){
+  if(!picked)return;
+  const op=OPS[picked];
+  const others=Object.keys(OPS).filter(k=>k!==picked);
+  const avg=o=>Math.round(Object.values(o.score).reduce((a,b)=>a+b,0)/4);
+  const r=document.getElementById('result');
+  r.innerHTML=`
+    <div class="rtitle">${lang==='ar'?'🏆 تقييم ':'🏆 Score: '}${L(op.name)}</div>
+    <div class="rcard" style="background:${op.bg}22;border:1px solid ${op.color}44">
+      <div class="ravatar" style="background:${op.bg};color:${op.color}">${op.k==='et'?'e&':op.k.toUpperCase()}</div>
+      <div style="flex:1">
+        <div class="rname" style="color:${op.color}">${L(op.name)}</div>
+        <div class="rsub">${L(op.sub)}</div>
+        <div class="rtags">
+          ${Object.keys(SCNAMES).map(s=>`<span class="rtag" style="color:${op.color}">${L(SCNAMES[s])}: ${op.score[s]}%</span>`).join('')}
+          <span class="rtag" style="color:${op.color};font-weight:700">${lang==='ar'?'متوسط:':'Avg:'} ${avg(op)}%</span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--t2);margin:10px 0 6px">${lang==='ar'?'مقارنة مع الشبكات الأخرى:':'vs. other networks:'}</div>
+    ${others.map(k=>{const o=OPS[k];const a=avg(o);return`<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--b)">
+      <div class="ravatar" style="width:32px;height:32px;font-size:10px;background:${o.bg};color:${o.color}">${k==='et'?'e&':k.toUpperCase()}</div>
+      <div style="flex:1"><div style="font-size:12px;font-weight:700;color:var(--t2)">${L(o.name)}</div>
+        <div style="height:3px;background:var(--s3);border-radius:2px;margin-top:4px;overflow:hidden">
+          <div style="height:100%;width:${a}%;background:${o.color};border-radius:2px"></div>
+        </div>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:${o.color}">${a}%</span>
+    </div>`;}).join('')}
+    <div class="notice">📅 ${lang==='ar'?'أسعار محدثة يونيو 2026 من المواقع الرسمية والمصادر الموثوقة.':'Prices updated June 2026 from official sites and trusted sources.'}</div>`;
+  r.classList.add('show');
+  setTimeout(()=>r.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+document.getElementById('sinput').placeholder='ابحث... مثلاً: 10GB أو VDSL أو 100';
+document.getElementById('binfo').textContent='اختر شبكة لمقارنتها';
+document.getElementById('cmpbtn').textContent='عرض المقارنة ▶';
+renderGrid();
+</script>
+</body>
+</html>
